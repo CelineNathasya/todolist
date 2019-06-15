@@ -13,42 +13,38 @@ class App extends Component {
     };
   }
   render() {
-    return (
-      <CustomNavbar />
 
-      // console.log("state: " + this.state.text);
-      // return (
-      //   <div className="text-center container">
-      //     <TextField
-      //       value={this.state.text}
-      //       onChange={e => {
-      //         this.setState({ text: e.target.value });
-      //       }}
-      //     />
-      //     <AddButton
-      //       onClick={() => {
-      //         if (this.state.text === "") return;
-      //         this.setState({
-      //           items: [...this.state.items, this.state.text],
-      //           text: ""
-      //         });
-      //       }}
-      //       text="add"
-      //     />
-      //     <List
-      //       doItems={this.state.items}
-      //       // delete chosen item by using its index
-      //       deleteItem={index => {
-      //         this.setState({
-      //           items: this.state.items.filter((item, idx) => {
-      //             // chosen index wont be returned
-      //             return idx !== index;
-      //           })
-      //         });
-      //       }}
-      //     />
-      //   </div>
-      // );
+      return (
+        <div className="text-center container">
+          <TextField
+            value={this.state.text}
+            onChange={e => {
+              this.setState({ text: e.target.value });
+            }}
+          />
+          <AddButton
+            onClick={() => {
+              if (this.state.text === "") return;
+              this.setState({
+                items: [...this.state.items, this.state.text],
+                text: ""
+              });
+            }}
+            text="add"
+          />
+          <List
+            doItems={this.state.items}
+            // delete chosen item by using its index
+            deleteItem={index => {
+              this.setState({
+                items: this.state.items.filter((item, idx) => {
+                  // chosen index wont be returned
+                  return idx !== index;
+                })
+              });
+            }}
+          />
+        </div>
     );
   }
 }
